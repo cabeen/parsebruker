@@ -1,0 +1,24 @@
+This tool is for parsing Bruker method files into several different (and
+hopefully more useful) formats.  This was developed to process magnetic
+resonance imaging data collected from a high field and small bore Bruker MRI;
+however, it may be useful for processing data from other machines as well.
+Imaging data produced by a Bruker MRI is accompanied by a "method" file, which
+stores information about the session and the acquisition parameters.  The goal
+of this script is to convert these method files into something that is easier
+to query and read.
+
+This includes JSON output and formatted output based on a used-specified
+pattern. There are four components derived from each method file: the header,
+the header attributes, the parameters, and the parameter attributes.  The
+header and parameters are key value pairs, and the attributes are additional
+data attached to some of the key value pairs. The header evidently encodes
+information related to the session date and compute environment, while the
+parameters encode how the details of the scanner protocol.  The attributes seem
+rather free-form, but among the things they sore, you can find the spatial
+resolution and diffusion gradient b-vectors and b-values.
+
+You can find an example script "example.sh" demonstrating a typical use of the
+tool. However, some of the steps are acquisition specific, so you'll no doubt
+have to modify it to fit your needs.
+
+Author: Ryan Cabeen, cabeen@gmail.com
